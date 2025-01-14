@@ -28,6 +28,11 @@ This implementation explores core aspects of digital design, including:
 - [Omkar Chougule](https://github.com/Omkar-9545)
 
 
+### Mentees:
+- [Rupan Kar](https://github.com/Rupan9036)
+- [tarun Sirigiri](https://github.com/Tarun-Sirigiri)
+- [Tejhuram Ravichandran](https://github.com/TejhuramRavichandran)
+
 ## References
 - [Drive Link for Report](https://drive.google.com/file/d/1cGgnBA8dDdktOeK71ILNqDV473CABYY8/view?usp=drivesdk)
 - [YouTube Video 1](https://youtu.be/fJycFrYZnUM?feature=shared)
