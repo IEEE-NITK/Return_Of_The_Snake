@@ -30,7 +30,7 @@ This implementation explores core aspects of digital design, including:
 
 ### Mentees:
 - [Rupan Kar](https://github.com/Rupan9036)
-- [tarun Sirigiri](https://github.com/Tarun-Sirigiri)
+- [Tarun Sirigiri](https://github.com/Tarun-Sirigiri)
 - [Tejhuram Ravichandran](https://github.com/TejhuramRavichandran)
 
 ## References
