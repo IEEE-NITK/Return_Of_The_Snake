@@ -311,14 +311,14 @@ text_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
    
  always @(posedge clk_25Mhz)
  begin
-  if(h_counter>=480 && h_counter<=487)       x_1<=(score)/1000;
-  else if(h_counter>=488 && h_counter<=495)  x_1<=(score%1000)/100;
-  else if(h_counter>=496 && h_counter<=503)  x_1<=(score%100)/10;
-  else if(h_counter>=504 && h_counter<=511)  x_1<=(score%10);
-  else if(h_counter>=128 && h_counter<=135)  x_1<=(high_score)/1000;
-  else if(h_counter>=136 && h_counter<=143)  x_1<=(high_score%1000)/100;
-  else if(h_counter>=144 && h_counter<=151)  x_1<=(high_score%100)/10;
-  else if(h_counter>=152 && h_counter<=159)  x_1<=(high_score%10);
+  if(h_counter>=480 && h_counter<=487)       x_1<=(score)/1000 + 1;
+  else if(h_counter>=488 && h_counter<=495)  x_1<=(score%1000)/100 + 1;
+  else if(h_counter>=496 && h_counter<=503)  x_1<=(score%100)/10 + 1;
+  else if(h_counter>=504 && h_counter<=511)  x_1<=(score%10)+ 1;
+  else if(h_counter>=128 && h_counter<=135)  x_1<=(high_score)/1000 + 1 ;
+  else if(h_counter>=136 && h_counter<=143)  x_1<=(high_score%1000)/100 + 1;
+  else if(h_counter>=144 && h_counter<=151)  x_1<=(high_score%100)/10 + 1;
+  else if(h_counter>=152 && h_counter<=159)  x_1<=(high_score%10) + 1;
 end
  
 assign  y_1=v_counter-1;
