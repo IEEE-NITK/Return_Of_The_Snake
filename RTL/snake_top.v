@@ -8,8 +8,8 @@ module snake_top(
     output [7:0]AN,         // Anodes (active low)
     output [6:0]seg,        // segment pins (active low)
     
-//    output AUD_PWM,       // for the audio
-//    output AUD_SD,
+   output AUD_PWM,       // for the audio
+   output AUD_SD,
 
 
     input [3:0]buttons,
