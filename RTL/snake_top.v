@@ -31,6 +31,7 @@ wire signed [10:0] last_vel_x , last_vel_y;
 wire [9:0] h_counter,v_counter;
 reg [1:0]divider;
 reg pixel_clk;
+wire collision;
 
 assign head_x = pos_x[9:0];
 assign head_y = pos_y[9:0];
@@ -54,7 +55,7 @@ reg [3:0]g_reg;
 //joystick jstk(.reset(reset),.clk(clock_100Mhz),.in_x(in_x),.in_y(in_y),.x_move(x_move),.y_move(y_move));
 Snake_Position_Controller control1(.pos_x(pos_x), .pos_y(pos_y),.buttons(buttons),.clock(clock_1hz), .reset(reset),
                                    .length(length),.velocity(velocity),.x_apple(curr_apple_x),.y_apple(curr_apple_y),
-                                   .last_vel_x(last_vel_x),.last_vel_y(last_vel_y));
+                                   .last_vel_x(last_vel_x),.last_vel_y(last_vel_y),.collision(collision));
 Clock_Divider_1s clock1s(clock_1hz,clock_100Mhz,reset);
 Clock_Divider_2 clock_by_two(clock_50Mhz,clock_100Mhz,reset);
 Clock_Divider_25Mhz clock_3(clock_25Mhz,clock_100Mhz,reset);
@@ -79,7 +80,8 @@ vga_controller snake_display(
     .last_vel_x(last_vel_x),
     .last_vel_y(last_vel_y),
     .score(score),
-    .high_score(high_score)
+    .high_score(high_score),
+    .collision(collision)
 //    .h_counter(h_counter),
  //   .v_counter(v_counter)
 );
@@ -164,7 +166,7 @@ end
 
        // play a sound when snake eats the apple
        
-play_sound music(.clk(clock_100Mhz), .Alarm(apple_eaten), .AUD_PWM(AUD_PWM), .AUD_SD(AUD_SD));
+   play_sound music(.clk(clock_100Mhz), .Alarm(apple_eaten), .AUD_PWM(AUD_PWM), .AUD_SD(AUD_SD));
    
    
 endmodule
