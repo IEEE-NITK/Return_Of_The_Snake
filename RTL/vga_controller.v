@@ -20,7 +20,8 @@ module vga_controller(
     output reg [9:0] h_counter ,  // Horizontal pixel counter (0 to 799)
     output reg [9:0] v_counter , // Vertical pixel counter (0 to 524)
     input[19:0] score,
-    input [19:0] high_score
+    input [19:0] high_score,
+    input collision
 );
 
     // VGA 640x480 @ 60Hz timing constants
@@ -45,12 +46,17 @@ module vga_controller(
 //    reg [9:0] v_counter = 0;
     
     wire [7:0]value;
+    wire[7:0]value_go;
     wire [0:7]data;
+    wire [0:15]data_go;
     reg [3:0]x_1;
+    reg [3:0]x_1_go;
     wire [3:0]y_1;
+    wire [3:0]y_1_go;
   //  reg [19:0]score;
 
-text_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
+score_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
+go_generator display_game_over(.clk(clk_100Mhz),.value(value_go),.data(data_go));
 
     // VGA Horizontal and Vertical Counters
     always @(posedge clk_25Mhz or posedge rst) begin
@@ -305,6 +311,14 @@ text_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
                  vga_b =4'b0000;
                  vga_g =4'b0000;
             end
+            
+            
+      if((~((value_go == 0) || (~data_go[(h_counter-248)%16]) || (~data_go[(h_counter-328)%16]))) && (collision == 1) )
+            begin 
+                 vga_r =4'b0111;
+                 vga_b =4'b0000;
+                 vga_g =4'b0000;  
+            end     
       end 
   end
   
@@ -315,14 +329,31 @@ text_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
   else if(h_counter>=488 && h_counter<=495)  x_1<=(score%1000)/100 + 1;
   else if(h_counter>=496 && h_counter<=503)  x_1<=(score%100)/10 + 1;
   else if(h_counter>=504 && h_counter<=511)  x_1<=(score%10)+ 1;
+  
   else if(h_counter>=128 && h_counter<=135)  x_1<=(high_score)/1000 + 1 ;
   else if(h_counter>=136 && h_counter<=143)  x_1<=(high_score%1000)/100 + 1;
   else if(h_counter>=144 && h_counter<=151)  x_1<=(high_score%100)/10 + 1;
   else if(h_counter>=152 && h_counter<=159)  x_1<=(high_score%10) + 1;
+  end
+  
+ always @(posedge clk_25Mhz)
+ begin
+  if(h_counter>=248 && h_counter<=263)       x_1_go<=1; //G
+  else if(h_counter>=264 && h_counter<=279)  x_1_go<=2; //A
+  else if(h_counter>=280 && h_counter<=295)  x_1_go<=3; //M
+  else if(h_counter>=296 && h_counter<=311)  x_1_go<=4; //E
+
+  else if(h_counter>=328 && h_counter<=343)  x_1_go<=5; //0
+  else if(h_counter>=344 && h_counter<=359)  x_1_go<=6; //V
+  else if(h_counter>=360 && h_counter<=375)  x_1_go<=4; //E
+  else if(h_counter>=376 && h_counter<=391)  x_1_go<=7; //R
+  
 end
  
-assign  y_1=v_counter-1;
-assign value=(((h_counter>=128 && h_counter<=159)||(h_counter>=480 && h_counter<=511))  && (v_counter>=1 &&v_counter<=10))?{x_1,y_1}:8'b0;
- 
+assign  y_1 = v_counter-1;
+assign y_1_go = v_counter-144;
+assign value=(((h_counter>=128 && h_counter<=159)||(h_counter>=480 && h_counter<=511))  && (v_counter>=1 && v_counter<=10))?{x_1,y_1}:8'b0;
+assign value_go=(((h_counter>=248 && h_counter<=311)||(h_counter>=328 && h_counter<=391))  && (v_counter>=144 && v_counter<=159))?{x_1_go,y_1_go}:8'b0;
+
 
 endmodule
