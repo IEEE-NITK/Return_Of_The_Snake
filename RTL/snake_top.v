@@ -52,14 +52,14 @@ reg [3:0]b_reg;
 reg [3:0]g_reg;
 //priority_encoder select_speed (.clock(clock_1hz),.i(level),.y(velocity));
 //joystick jstk(.reset(reset),.clk(clock_100Mhz),.in_x(in_x),.in_y(in_y),.x_move(x_move),.y_move(y_move));
-Snake_Position_Controler control1(.pos_x(pos_x), .pos_y(pos_y),.buttons(buttons),.clock(clock_1hz), .reset(reset),
+Snake_Position_Controller control1(.pos_x(pos_x), .pos_y(pos_y),.buttons(buttons),.clock(clock_1hz), .reset(reset),
                                    .length(length),.velocity(velocity),.x_apple(curr_apple_x),.y_apple(curr_apple_y),
                                    .last_vel_x(last_vel_x),.last_vel_y(last_vel_y));
 Clock_Divider_1s clock1s(clock_1hz,clock_100Mhz,reset);
 Clock_Divider_2 clock_by_two(clock_50Mhz,clock_100Mhz,reset);
 Clock_Divider_25Mhz clock_3(clock_25Mhz,clock_100Mhz,reset);
-Random_Generator random1(pos_x_rand,pos_y_rand,rand_seed,clock_1hz,reset);
-vga_controler snake_display(
+Random_Generator random1(pos_x_rand,pos_y_rand,rand_seed,clock_1hz,reset,curr_apple_x,curr_apple_y,velocity);
+vga_controller snake_display(
     .clk_25Mhz(clock_25Mhz),           // Main clock input
     .clk_100Mhz(clock_100Mhz),
     .rst(reset),                // Reset signal
@@ -108,7 +108,7 @@ always @(posedge clock_1hz or posedge reset) begin
             head_y <= curr_apple_y + 4 && head_y >= curr_apple_y - 4) begin
             apple_eaten <= 1;
             length <= length + 1;
-            score <= score + velocity*velocity;
+            score <= (velocity<6)? (score + velocity) : (score + 2*velocity);
             apple_count<=apple_count+1;
             velocity <= 2 + apple_count/6;
         end
@@ -130,41 +130,41 @@ always @(posedge clock_1hz or posedge reset) begin
 end
 
 always @(*) begin
-    unit = score % 10; 
-    tens = ((score % 100) - unit) / 10 ; 
-    hundreds = ((score % 1000)- unit - tens*10 ) / 100;  
-    thousands = ((score % 10000)- unit - tens*10 - hundreds*100) / 1000;
+   unit = score % 10; 
+   tens = ((score % 100) - unit) / 10 ; 
+   hundreds = ((score % 1000)- unit - tens*10 ) / 100;  
+   thousands = ((score % 10000)- unit - tens*10 - hundreds*100) / 1000;
     
-    h_unit = high_score % 10; 
-    h_tens = ((high_score % 100) - h_unit) / 10 ; 
-    h_hundreds = ((high_score % 1000)- h_unit - h_tens*10 ) / 100;  
-    h_thousands = ((high_score % 10000)- h_unit - h_tens*10 - h_hundreds*100) / 1000;
+   h_unit = high_score % 10; 
+   h_tens = ((high_score % 100) - h_unit) / 10 ; 
+   h_hundreds = ((high_score % 1000)- h_unit - h_tens*10 ) / 100;  
+   h_thousands = ((high_score % 10000)- h_unit - h_tens*10 - h_hundreds*100) / 1000;
     
 end
 
-  always @(posedge clock_100Mhz)begin
-        case(rr)
-            3'b111: digit_holder <= unit;
-            3'b110: digit_holder <= tens;
-            3'b101: digit_holder <= hundreds;
-            3'b100: digit_holder <= thousands;
-            3'b011: digit_holder <= h_unit;
-            3'b010: digit_holder <= h_tens;
-            3'b001: digit_holder <= h_hundreds;
-            3'b000: digit_holder <= h_thousands;
-            default: digit_holder <= 5'b10000;
-        endcase
-    end
+ always @(posedge clock_100Mhz)begin
+       case(rr)
+           3'b111: digit_holder <= unit;
+           3'b110: digit_holder <= tens;
+           3'b101: digit_holder <= hundreds;
+           3'b100: digit_holder <= thousands;
+           3'b011: digit_holder <= h_unit;
+           3'b010: digit_holder <= h_tens;
+           3'b001: digit_holder <= h_hundreds;
+           3'b000: digit_holder <= h_thousands;
+           default: digit_holder <= 5'b10000;
+       endcase
+   end
 
 
       
-        // scoreboard
+//        // scoreboard
         
  disp_7_seg scoreboard(.clk(clock_100Mhz), .digit_holder(digit_holder), .refresh_rate(rr), .AN(AN), .seg(seg));
 
        // play a sound when snake eats the apple
        
-  play_sound music(.clk(clock_100Mhz), .Alarm(apple_eaten), .AUD_PWM(AUD_PWM), .AUD_SD(AUD_SD));
+play_sound music(.clk(clock_100Mhz), .Alarm(apple_eaten), .AUD_PWM(AUD_PWM), .AUD_SD(AUD_SD));
    
    
 endmodule
