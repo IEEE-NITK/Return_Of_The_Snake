@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 module Snake_Position_Controller(output [999:0] pos_x, pos_y,  input clock, reset,input [9:0]length, 
-input [3:0]velocity ,input [9:0] x_apple, input [9:0] y_apple , output reg signed [10:0] last_vel_x , last_vel_y , input [3:0] buttons );
+input [3:0]velocity ,input [9:0] x_apple, input [9:0] y_apple , output reg signed [10:0] last_vel_x , last_vel_y , input [3:0] buttons , output reg collision);
 reg signed [10:0] pos_x_temp, pos_y_temp;
 reg signed [10:0] vel_x, vel_y;
 reg [989:0] pos_x_body,pos_y_body;
@@ -177,7 +177,16 @@ always @(posedge clock or posedge reset) begin
      begin
         pos_x_temp = pos_x_temp + vel_x * velocity;
         pos_y_temp = pos_y_temp + vel_y * velocity;
-     end end
+        collision  = 0;
+     end 
+      
+      else collision = 1; 
+      
+   end 
+     
+     
+      else collision = 1;
+    
                  
                  
                  
