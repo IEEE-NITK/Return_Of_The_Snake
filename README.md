@@ -29,7 +29,6 @@ This implementation explores core aspects of digital design, including:
 
 
 ### Mentees:
-- [Rupan Kar](https://github.com/Rupan9036)
 - [Tarun Sirigiri](https://github.com/Tarun-Sirigiri)
 - [Tejhuram Ravichandran](https://github.com/TejhuramRavichandran)
 
