@@ -55,7 +55,7 @@ module vga_controller(
     wire [3:0]y_1_go;
   //  reg [19:0]score;
 
-score_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
+text_generator display_score(.clk(clk_100Mhz),.value(value),.data(data));
 go_generator display_game_over(.clk(clk_100Mhz),.value(value_go),.data(data_go));
 
     // VGA Horizontal and Vertical Counters
