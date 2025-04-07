@@ -1,9 +1,9 @@
 set_property IOSTANDARD LVCMOS33 [get_ports clock_100Mhz]
 set_property PACKAGE_PIN E3 [get_ports clock_100Mhz]
 
-set_property IOSTANDARD LVCMOS33 [get_ports reset]
-set_property PACKAGE_PIN N17 [get_ports reset]
-#set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { reset }];
+#set_property IOSTANDARD LVCMOS33 [get_ports reset]
+#set_property PACKAGE_PIN N17 [get_ports reset]
+set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { reset }];
 
 set_property IOSTANDARD LVCMOS33 [get_ports {buttons[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {buttons[2]}]
@@ -77,10 +77,10 @@ set_property PACKAGE_PIN T9 [get_ports {AN[2]}]
 set_property PACKAGE_PIN J18 [get_ports {AN[1]}]
 set_property PACKAGE_PIN J17 [get_ports {AN[0]}]
 
-#set_property IOSTANDARD LVCMOS33 [get_ports AUD_PWM]
-#set_property IOSTANDARD LVCMOS33 [get_ports AUD_SD]
-#set_property PACKAGE_PIN A11 [get_ports AUD_PWM]
-#set_property PACKAGE_PIN D12 [get_ports AUD_SD]
+set_property IOSTANDARD LVCMOS33 [get_ports AUD_PWM]
+set_property IOSTANDARD LVCMOS33 [get_ports AUD_SD]
+set_property PACKAGE_PIN A11 [get_ports AUD_PWM]
+set_property PACKAGE_PIN D12 [get_ports AUD_SD]
 
 
 #set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { level[0] }]; 
