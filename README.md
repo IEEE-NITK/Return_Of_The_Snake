@@ -1,5 +1,5 @@
 # Return_Of_The_Snake
-Implemented the Retro SNAKE Game on Nexys4 Artix 7 DDR FPGA board using Verilog and displayed it onto a VGA compatible monitor.
+Implemented the Retro SNAKE Game on Nexys4 DDR Artix 7 FPGA board using Verilog and displayed it onto a VGA compatible monitor.
 
 ## Abstract
 This project implements the retro **Snake Game** on an FPGA board using Verilog HDL. Through this project, we aim to demonstrate the capabilities of FPGA platforms in creating real-time, interactive digital environments. The project showcases digital design, FPGA programming, and hardware-software integration, serving as a hands-on experience in these areas.
