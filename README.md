@@ -123,6 +123,7 @@ This separation ensures flicker-free graphics and smooth gameplay timing.
 A 20-bit Linear Feedback Shift Register (LFSR) is used for pseudo-random apple placement. The output is scaled and aligned to grid positions, ensuring apples appear fully within the playable area without overlapping the snake.
 
 ![rg_sim](https://github.com/user-attachments/assets/13681ddc-a13e-4b21-9320-6bf5c4d15355)
+
 *Figure: Simulation waveform showing randomly generated apple positions*
 
 ### Snake Position Control: `Snake_Position_Controller.v`
