@@ -448,12 +448,12 @@ We also acknowledge the Digilent Nexys4 DDR platform documentation team for tech
 
 
 ### Mentors:
-- [Madhav Kedia](https://github.com/madhavkedia018)
-- [Rohan Abhilash S.](https://github.com/Rohan-Abhilash)
-- [Omkar Chougule](https://github.com/Omkar-9545)
+- [Madhav Kedia](https://www.linkedin.com/in/madhav-kedia-49a069265/)
+- [Rohan Abhilash S.](https://www.linkedin.com/in/rohan-abhilash-0b0627263/)
+- [Omkar Chougule](https://www.linkedin.com/in/omkar-chougule-b07a88262/)
 
 
 ### Mentees:
-- [Tarun Sirigiri](https://github.com/Tarun-Sirigiri)
-- [Tejhuram Ravichandran](https://github.com/TejhuramRavichandran)
+- [Tarun Sirigiri](https://www.linkedin.com/in/sirigiri-tarun-1244b528a/)
+- [Tejhuram Ravichandran](https://www.linkedin.com/in/tejhuram-ravichandran-3259242a9/)
 
