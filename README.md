@@ -351,11 +351,11 @@ The Snake game was successfully implemented and tested on the Nexys4 DDR Artix-7
 
 This project presents a comprehensive hardware-only implementation of the classic Snake game on the Nexys4 DDR Artix-7 FPGA platform, demonstrating the real-time capabilities and flexibility of FPGA-based digital design. Through the use of Verilog HDL, we successfully integrated key subsystems including user input processing, VGA signal generation, scoring mechanisms, collision detection, and PWM-based audio feedback.
 
-The modular architecture employed throughout the project allowed for efficient development, testing, and future extensibility. Each component, from the FSM-based movement controller to the LFSR-based apple generator, was encapsulated in independently testable Verilog modules. This structure not only improved maintainability but also reflected best practices in digital hardware development [Singla2018, Geier2021].
+The modular architecture employed throughout the project allowed for efficient development, testing, and future extensibility. Each component, from the FSM-based movement controller to the LFSR-based apple generator, was encapsulated in independently testable Verilog modules. This structure not only improved maintainability but also reflected best practices in digital hardware development.
 
 Real-time responsiveness was achieved through precise timing synchronization and clock division, while the VGA controller provided a flicker-free graphical representation of the game at a resolution of 640×480. The successful rendering of game elements—along with score tracking and audio output—demonstrates the practical application of theoretical digital design concepts such as register management, memory mapping, pixel-level rendering, and FSM transitions.
 
-The project reinforces the educational and prototyping potential of FPGA platforms in embedded system curricula. By avoiding reliance on embedded processors or external software, this implementation exemplifies how pure hardware design can be leveraged to build complete, interactive applications [Geier2021, SnakeFPGAInstructables].
+The project reinforces the educational and prototyping potential of FPGA platforms in embedded system curricula. By avoiding reliance on embedded processors or external software, this implementation exemplifies how pure hardware design can be leveraged to build complete, interactive applications.
 
 Moreover, the efficient utilization of the Artix-7’s hardware resources showcases the scalability of this approach. The final design leaves significant unused FPGA capacity, allowing for future additions like dynamic walls, increasing difficulty levels, multiplayer modes, and alternative control mechanisms such as PS/2 or USB interfaces.
 
