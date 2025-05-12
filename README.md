@@ -329,8 +329,6 @@ collides with the wall.*
 
 These milestones reflect the incremental progress made during development, with each stage tested and demonstrated in real hardware using the Nexys4 DDR board.
 
-# Return of the Snake – FPGA Game Implementation
-
 ## Results
 
 The Snake game was successfully implemented and tested on the Nexys4 DDR Artix-7 FPGA board. Each core module was validated both in simulation and on hardware to verify functional correctness and performance. The results demonstrate the system's real-time responsiveness, effective visual output, and overall stability. The key observations are as follows:
