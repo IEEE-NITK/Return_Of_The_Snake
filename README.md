@@ -434,11 +434,9 @@ We also acknowledge the Digilent Nexys4 DDR platform documentation team for tech
 - [Singla, N. & Narula, M.S., "FPGA Implementation of Snake Game Using Verilog HDL", IRJET 2018](https://www.irjet.net/archives/V5/i5/IRJET-V5I5287.pdf)
 - [Snake Game for Cyclone IV](https://habr.com/en/articles/431226/)
 - [Snake on an FPGA - Instructables](https://www.instructables.com/Snake-on-an-FPGA-Verilog/)
-- [Geier et al., "Syntroids: Synthesizing a Game for FPGAs"](https://arxiv.org/abs/2101.07232)
 - [Snake Game for FPGA – Tom Scherlis](https://tomscherlis.com/otw-portfolio/snake-game-for-fpga/)
 - [Nandland – LFSR for FPGA](https://nandland.com/lfsr-linear-feedback-shift-register/)
 - [Arora et al., "FPGA-Based Multifunction Interface", ICAC3, Springer](https://link.springer.com/chapter/10.1007/978-94-007-1864-7_4)
-- [Snake Game FPGA Verilog – Almorsi](https://github.com/mohamedAlmorsi/snake-game-FPGA-Verilog)
 - [FPGA Cat Invaders – Columbia University](https://www.cs.columbia.edu/~sedwards/classes/2024/4840-spring/designs/FPGA-Cat-Invaders.pdf)
 - [Project F – Beginning FPGA Graphics](https://projectf.io/posts/fpga-graphics/)
 
