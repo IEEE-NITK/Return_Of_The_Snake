@@ -15,7 +15,7 @@ In this project, we present an FPGA-based implementation of the Snake game using
 
 The motivation behind this project is twofold: firstly, to demonstrate the feasibility and advantages of implementing complex real-time systems solely in hardware; and secondly, to provide an educational platform for understanding digital design concepts such as finite state machines (FSMs), VGA signal generation, and peripheral interfacing. Similar projects have been undertaken using different FPGA platforms, highlighting the versatility and educational value of such implementations.
 
-##Literature Review
+## Literature Review
 The implementation of classic games like Snake on FPGAs has been explored in various academic and hobbyist projects, each highlighting unique challenges and solutions.
 
 Singla and Narula demonstrated the feasibility of implementing the Snake game using Verilog HDL on an FPGA platform. Their work emphasized the educational value of such projects in understanding digital design concepts. However, they noted limitations in scalability and modularity, which could hinder the addition of advanced features.
@@ -43,13 +43,13 @@ Our project builds upon these insights by adopting a modular design approach, op
 The primary objective of this project is to develop a real-time, fully hardware-based implementation of the classic Snake game on the Nexys4 DDR Artix-7 FPGA platform using Verilog HDL. The key goals of the project include:
 
 - **Design and implement a modular and scalable Snake game architecture in Verilog HDL**:  
-  Emphasis is placed on reusability, hierarchy, and readability of code, which is a best practice in digital system design [^1].
+  Emphasis is placed on reusability, hierarchy, and readability of code, which is a best practice in digital system design.
 
 - **Utilize pushbutton-based user inputs for direction control**:  
-  This involves debouncing logic and edge detection mechanisms to ensure accurate and responsive control, which is critical in interactive systems [^2].
+  This involves debouncing logic and edge detection mechanisms to ensure accurate and responsive control, which is critical in interactive systems.
 
 - **Generate real-time VGA signals for graphical game rendering**:  
-  Design a custom VGA controller to drive a 640×480 resolution display using standard 25.175 MHz pixel timing and color encoding techniques. This aligns with hardware VGA protocols detailed in FPGA application literature [^3].
+  Design a custom VGA controller to drive a 640×480 resolution display using standard 25.175 MHz pixel timing and color encoding techniques. This aligns with hardware VGA protocols detailed in FPGA application literature.
 
 - **Implement collision detection and dynamic game logic in hardware**:  
   This includes FSM-based tracking of the snake’s position, detecting interactions with boundaries and self, and adjusting the game state accordingly in real-time.
@@ -58,7 +58,7 @@ The primary objective of this project is to develop a real-time, fully hardware-
   Convert binary score values into visual outputs using time-multiplexed control logic for user feedback.
 
 - **Enhance gameplay experience with audio output using PWM**:  
-  Implement a basic sound system that plays a tone whenever the snake consumes an apple, adding sensory interaction to the hardware game loop [^4].
+  Implement a basic sound system that plays a tone whenever the snake consumes an apple, adding sensory interaction to the hardware game loop.
 
 - **Explore FPGA-based system design for educational purposes**:  
   This project provides hands-on experience with finite state machines, synchronization, timing analysis, memory mapping, and peripheral interfacing, aligning with common learning goals in undergraduate digital design curricula.
@@ -422,17 +422,14 @@ We also acknowledge the Digilent Nexys4 DDR platform documentation team for tech
 - [Return of the Snake GitHub Repo](https://github.com/IEEE-NITK/Return_Of_The_Snake)
 - [Nexys4 DDR FPGA Board Manual](https://digilent.com/reference/_media/nexys4-ddr%3Anexys4ddr_rm.pdf)
 - [Nexys A7-100T Master XDC File](https://github.com/Digilent/Nexys-A7-100T-Keyboard/blob/master/src%2Fconstraints%2FNexys-A7-100T-Master.xdc)
-- Singla, N. & Narula, M.S., "FPGA Implementation of Snake Game Using Verilog HDL", IRJET 2018.  
-  https://www.irjet.net/archives/V5/i5/IRJET-V5I5287.pdf
+- [Singla, N. & Narula, M.S., "FPGA Implementation of Snake Game Using Verilog HDL", IRJET 2018](https://www.irjet.net/archives/V5/i5/IRJET-V5I5287.pdf)
 - [Snake Game for Cyclone IV](https://habr.com/en/articles/431226/)
 - [Snake on an FPGA - Instructables](https://www.instructables.com/Snake-on-an-FPGA-Verilog/)
 - [Yufan Du's Snake Game](https://www.yufandu.com/)
-- Geier et al., "Syntroids: Synthesizing a Game for FPGAs", arXiv:2101.07232  
-  https://arxiv.org/abs/2101.07232
+- [Geier et al., "Syntroids: Synthesizing a Game for FPGAs", arXiv:2101.07232](https://arxiv.org/abs/2101.07232)
 - [Snake Game for FPGA – Tom Scherlis](https://tomscherlis.com/otw-portfolio/snake-game-for-fpga/)
 - [Nandland – LFSR for FPGA](https://nandland.com/lfsr-linear-feedback-shift-register/)
-- Arora et al., "FPGA-Based Multifunction Interface", ICAC3, Springer  
-  https://link.springer.com/chapter/10.1007/978-94-007-1864-7_4
+- [Arora et al., "FPGA-Based Multifunction Interface", ICAC3, Springer](https://link.springer.com/chapter/10.1007/978-94-007-1864-7_4)
 - [Snake Game FPGA Verilog – Almorsi](https://github.com/mohamedAlmorsi/snake-game-FPGA-Verilog)
 - [FPGA Cat Invaders – Columbia University](https://www.cs.columbia.edu/~sedwards/classes/2024/4840-spring/designs/FPGA-Cat-Invaders.pdf)
 - [Project F – Beginning FPGA Graphics](https://projectf.io/posts/fpga-graphics/)
