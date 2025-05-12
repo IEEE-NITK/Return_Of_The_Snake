@@ -419,7 +419,7 @@ We also acknowledge the Digilent Nexys4 DDR platform documentation team for tech
 
 ## References
 
-- [Return of the Snake GitHub Repo](https://github.com/IEEE-NITK/Return_Of_The_Snake)
+
 - [Nexys4 DDR FPGA Board Manual](https://digilent.com/reference/_media/nexys4-ddr%3Anexys4ddr_rm.pdf)
 - [Nexys A7-100T Master XDC File](https://github.com/Digilent/Nexys-A7-100T-Keyboard/blob/master/src%2Fconstraints%2FNexys-A7-100T-Master.xdc)
 - [Singla, N. & Narula, M.S., "FPGA Implementation of Snake Game Using Verilog HDL", IRJET 2018](https://www.irjet.net/archives/V5/i5/IRJET-V5I5287.pdf)
