@@ -122,8 +122,7 @@ This separation ensures flicker-free graphics and smooth gameplay timing.
 
 A 20-bit Linear Feedback Shift Register (LFSR) is used for pseudo-random apple placement. The output is scaled and aligned to grid positions, ensuring apples appear fully within the playable area without overlapping the snake.
 
-(![rg_sim](https://github.com/user-attachments/assets/13681ddc-a13e-4b21-9320-6bf5c4d15355)
-)  
+![rg_sim](https://github.com/user-attachments/assets/13681ddc-a13e-4b21-9320-6bf5c4d15355)
 *Figure: Simulation waveform showing randomly generated apple positions*
 
 ### Snake Position Control: `Snake_Position_Controller.v`
@@ -145,8 +144,8 @@ Generates VGA timing signals (HSYNC, VSYNC) and renders all visible elements:
 - Background: Black  
 - Optional walls: White
 
-![Game Field Layout](proposed_layout.png)  
-*Figure: Proposed design layout of the Snake game on VGA*
+![proposed_layout](https://github.com/user-attachments/assets/904f0c6d-251f-473b-b414-11138637b30e)
+*Figure: The initial design of the proposed snake game playing field layout.*
 
 #### Embedded Text Display Modules
 
@@ -184,9 +183,8 @@ The Snake game is implemented on the **Nexys4 DDR Artix-7 FPGA** board, leveragi
 
 ### Nexys4 DDR Board Overview
 
-![Nexys4 Board](Nexys_4.png)
-
-![Board Features](Nexys4_features.png)  
+![Nexys_4](https://github.com/user-attachments/assets/4f43fb8a-8bf2-4b65-8722-49e64d609c1b)
+![Nexys4_features](https://github.com/user-attachments/assets/ad05c96c-bdc0-4833-b186-0fd888db0f06)
 *Figure: Nexys4 DDR Artix-7 FPGA Board and its features*
 
 ### Utilized Hardware Components
@@ -200,14 +198,14 @@ Acts as a system reset. It reinitializes game parameters like score, snake lengt
 #### 🎮 VGA Output (`J15–P17`)
 Outputs video using a 12-bit color interface (4 bits each for R, G, B), along with horizontal and vertical sync (HSYNC, VSYNC). The VGA controller renders the game in **640×480 @ 60 Hz** resolution.
 
-![VGA Block Diagram](VGA%20display%20controller%20block%20diagram.png)  
+![VGA display controller block diagram](https://github.com/user-attachments/assets/a3ac16d9-f2f7-434d-9380-99edeff083ec)
 *Figure: VGA display controller block diagram*
 
-![VGA Timing Diagram](Signal%20timings%20for%20a%20640-pixel%20by%20480%20row%20display%20using%20a%2025MHz%20pixel%20clock%20and%2060Hz%20vertical%20refresh.png)  
-*Figure: VGA signal timings (640×480 @ 25 MHz pixel clock)*
+![Signal timings for a 640-pixel by 480 row display using a 25MHz pixel clock and 60Hz vertical refresh](https://github.com/user-attachments/assets/177ebda2-84b7-4b2b-8395-35d5c07180d0)
+*Figure: Signal timings for a 640-pixel by 480 row display using a 25MHz pixel clock and 60Hz vertical refresh*
 
-![Horizontal Sync](VGA%20Horizontal%20Synchronization.png)  
-*Figure: VGA Horizontal Synchronization details*
+![VGA Horizontal Synchronization](https://github.com/user-attachments/assets/14f3c0a2-d303-468c-9adf-15c5920114e7)
+*Figure: VGA Horizontal Synchronization*
 
 #### 🧮 7-Segment Display (`AN0–AN7`)
 Displays current and high scores using multiplexed scanning:
@@ -216,11 +214,11 @@ Displays current and high scores using multiplexed scanning:
 - `seg_mapping.v`: Encodes digits into 7-segment format  
 - `anode_sel.v`: Selects each digit rapidly to simulate full display
 
-![Common Anode Circuit](Common%20anode%20circuit%20node.png)  
-*Figure: Common anode configuration*
+![Common anode circuit node](https://github.com/user-attachments/assets/1ecfe939-1390-4215-bbd0-43776486c97b)
+*Figure: Common anode circuit node*
 
-![Multiplex Timing](Four%20digit%20scanning%20display%20controller%20timing%20diagram.png)  
-*Figure: Four-digit display scanning timing*
+![Four digit scanning display controller timing diagram](https://github.com/user-attachments/assets/4346a6cc-0d60-45b8-a2a9-e3d3449c9657)
+*Figure: Four digit scanning display controller timing diagram*
 
 #### 🔊 Audio Output (`AUD_PWM`)
 Plays a tone when an apple is eaten. Uses PWM to generate an audible square wave:
@@ -228,11 +226,11 @@ Plays a tone when an apple is eaten. Uses PWM to generate an audible square wave
 - Connected to a 3.5mm mono audio jack through a low-pass filter
 - Driven by `play_sound.v` module on event trigger
 
-![Low Pass Filter](Sallen-Key%20Butterworth%20Low%20Pass%204th%20Order%20Fliter.png)  
-*Figure: 4th order Butterworth filter circuit*
+![Sallen-Key Butterworth Low Pass 4th Order Fliter](https://github.com/user-attachments/assets/1f6c4b03-0cf3-4129-98f9-ce3d42c0e376)
+*Figure: Sallen-Key Butterworth Low Pass 4th Order Fliter*
 
-![PWM Waveform](Simple%20Waveform%20represented%20as%20PWM.png)  
-*Figure: Simple waveform represented as PWM*
+![Simple Waveform represented as PWM](https://github.com/user-attachments/assets/b7102e66-8902-430f-8e88-53fa753f188e)
+*Figure: Simple Waveform represented as PWM*
 
 #### 💡 LED Indicators (`LD0–LD15`)
 Optional debugging or status indicators:
@@ -306,8 +304,9 @@ The development of the Snake game on the **Nexys4 DDR Artix-7 FPGA** board was s
 - Real-time score rendered directly on VGA output.
 - Game Over message shown on snake death.
 
-![Game Over](go_imp.png)  
-*Figure: GAME OVER message displayed after wall collision*
+![go_imp](https://github.com/user-attachments/assets/8bde42ba-cd0a-4986-a927-6b61d8c2d82a)
+*Figure: GAME OVER message being displayed on the screen after the snake
+collides with the wall.*
 
 ---
 
@@ -448,13 +447,4 @@ We also acknowledge the Digilent Nexys4 DDR platform documentation team for tech
 ### Mentees:
 - [Tarun Sirigiri](https://github.com/Tarun-Sirigiri)
 - [Tejhuram Ravichandran](https://github.com/TejhuramRavichandran)
-
-<!-- 
-## References
-[^1]: Singla, A., et al. (2018). *Snake Game on FPGA*.
-[^2]: Scherlis, J. (n.d.). *FPGA Snake Game with Pushbutton Controls*.
-[^3]: Instructables. *Snake Game on FPGA using VGA*.
-[^4]: Du, H. (n.d.). *Sound Implementation in FPGA Snake Game*.
-[^5]: Nandland. *Understanding LFSRs - Linear Feedback Shift Registers*. Available at: [https://nandland.com](https://nandland.com)
--->
 
