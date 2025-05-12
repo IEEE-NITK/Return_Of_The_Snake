@@ -146,6 +146,7 @@ Generates VGA timing signals (HSYNC, VSYNC) and renders all visible elements:
 - Optional walls: White
 
 ![proposed_layout](https://github.com/user-attachments/assets/904f0c6d-251f-473b-b414-11138637b30e)
+
 *Figure: The initial design of the proposed snake game playing field layout.*
 
 #### Embedded Text Display Modules
@@ -186,26 +187,30 @@ The Snake game is implemented on the **Nexys4 DDR Artix-7 FPGA** board, leveragi
 
 ![Nexys_4](https://github.com/user-attachments/assets/4f43fb8a-8bf2-4b65-8722-49e64d609c1b)
 ![Nexys4_features](https://github.com/user-attachments/assets/ad05c96c-bdc0-4833-b186-0fd888db0f06)
+
 *Figure: Nexys4 DDR Artix-7 FPGA Board and its features*
 
 ### Utilized Hardware Components
 
 #### 🔘 Pushbuttons (`BTNU`, `BTND`, `BTNL`, `BTNR`)
-Used for directional control of the snake. Connected to input pins specified in the board's constraint file. Debouncing and edge detection logic ensure reliable movement.
+These directional pushbuttons are used to control the snake’s movement. They are connected to dedicated input pins on the FPGA, as specified in the board's constraints file. The Verilog design includes edge detection and debouncing logic to ensure clean signal transitions for directional changes.
 
 #### 🔀 Switches (`SW0`)
-Acts as a system reset. It reinitializes game parameters like score, snake length, and apple position. Monitored by the top-level module to trigger a synchronous reset.
+Switch SW0 is configured as a system reset control. It is used to reinitialize the game state, including score, snake length, and apple position. This switch is directly monitored by the top-level control module and triggers a synchronous reset when asserted.
 
 #### 🎮 VGA Output (`J15–P17`)
-Outputs video using a 12-bit color interface (4 bits each for R, G, B), along with horizontal and vertical sync (HSYNC, VSYNC). The VGA controller renders the game in **640×480 @ 60 Hz** resolution.
+The VGA interface on the Nexys4 DDR board provides a 12-bit color output (4 bits per R, G, and B channel), along with HSYNC and VSYNC signals. The Verilog VGA controller module drives these outputs, producing a 640×480 resolution display at 60 Hz refresh rate. The timing parameters follow standard VGA protocol and are implemented using horizontal and vertical counters.
 
 ![VGA display controller block diagram](https://github.com/user-attachments/assets/a3ac16d9-f2f7-434d-9380-99edeff083ec)
+
 *Figure: VGA display controller block diagram*
 
 ![Signal timings for a 640-pixel by 480 row display using a 25MHz pixel clock and 60Hz vertical refresh](https://github.com/user-attachments/assets/177ebda2-84b7-4b2b-8395-35d5c07180d0)
+
 *Figure: Signal timings for a 640-pixel by 480 row display using a 25MHz pixel clock and 60Hz vertical refresh*
 
 ![VGA Horizontal Synchronization](https://github.com/user-attachments/assets/14f3c0a2-d303-468c-9adf-15c5920114e7)
+
 *Figure: VGA Horizontal Synchronization*
 
 #### 🧮 7-Segment Display (`AN0–AN7`)
@@ -216,9 +221,11 @@ Displays current and high scores using multiplexed scanning:
 - `anode_sel.v`: Selects each digit rapidly to simulate full display
 
 ![Common anode circuit node](https://github.com/user-attachments/assets/1ecfe939-1390-4215-bbd0-43776486c97b)
+
 *Figure: Common anode circuit node*
 
 ![Four digit scanning display controller timing diagram](https://github.com/user-attachments/assets/4346a6cc-0d60-45b8-a2a9-e3d3449c9657)
+
 *Figure: Four digit scanning display controller timing diagram*
 
 #### 🔊 Audio Output (`AUD_PWM`)
@@ -228,9 +235,11 @@ Plays a tone when an apple is eaten. Uses PWM to generate an audible square wave
 - Driven by `play_sound.v` module on event trigger
 
 ![Sallen-Key Butterworth Low Pass 4th Order Fliter](https://github.com/user-attachments/assets/1f6c4b03-0cf3-4129-98f9-ce3d42c0e376)
+
 *Figure: Sallen-Key Butterworth Low Pass 4th Order Fliter*
 
 ![Simple Waveform represented as PWM](https://github.com/user-attachments/assets/b7102e66-8902-430f-8e88-53fa753f188e)
+
 *Figure: Simple Waveform represented as PWM*
 
 #### 💡 LED Indicators (`LD0–LD15`)
@@ -306,6 +315,7 @@ The development of the Snake game on the **Nexys4 DDR Artix-7 FPGA** board was s
 - Game Over message shown on snake death.
 
 ![go_imp](https://github.com/user-attachments/assets/8bde42ba-cd0a-4986-a927-6b61d8c2d82a)
+
 *Figure: GAME OVER message being displayed on the screen after the snake
 collides with the wall.*
 
